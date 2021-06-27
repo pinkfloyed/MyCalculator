@@ -2,6 +2,7 @@
 #include<math.h>
 #define quit q
 using namespace std;
+typedef long long ll;
 double func(double n)
 {
 	double fact=1.0;
@@ -10,6 +11,10 @@ double func(double n)
 		fact*=i;
 	}
 	return fact;
+}
+ll mod(ll a,ll b)
+{
+	ll result=a%b;
 }
 double Mycalculator(char c,double a,double b)
 {
@@ -30,6 +35,10 @@ double Mycalculator(char c,double a,double b)
 	{
 		result=a/b;
 	}
+	else if(c=='%')
+	{
+		result=mod(a,b);
+	}
 	else if(c=='^')
 	{
 		result=powl(a,b);
@@ -37,9 +46,9 @@ double Mycalculator(char c,double a,double b)
 	else if(c=='&')
 	{
 		result=log10(a);
-		result=log10(b);
+
 	}
-	else if(c=='%')
+	else if(c=='#')
 	{
 		result=exp(a);
 	}
@@ -58,7 +67,7 @@ int main()
 {
     char c;
     double a,b=0.0;
-	cout<<"Enter the operator(+ - * / ^ & % ! q for quit):"<<'\n';
+	cout<<"Enter the operator(+ - * / % ^ & # ! q for quit):"<<'\n';
     cin>>c;
     cout<<"Enter Two Numbers :"<<'\n';
     cout<<"Number 1 : ";
@@ -69,7 +78,7 @@ int main()
 
     while(c!='q'){
 	cout<<fixed<<setprecision(12)<<"result = "<<Mycalculator(c,a,b)<<'\n';
-	cout<<"Enter the operator(+ - * / ^ & % ! q for quit):";
+	cout<<"Enter the operator(+ - * / % ^ & # ! q for quit):";
     cin>>c;
 	cout<<"Enter Two Numbers :"<<'\n';
     cout<<"Number 1 : "<<'\n';
